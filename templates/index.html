@@ -6,15 +6,17 @@
 </head>
 <body>
 <form method="post">
-    введите <input name="trtr">
+    введите три положительных числа <input name="trtr">
      <input type="submit" value="Нажми" />
 </form>
 {% if p is defined%}
-    Ку-ку {{p}}<br/>
+    P: {{p}}<br/>
 {% endif %}
 {% if s is defined%}
-    ква {{s}}
+    S: {{s}}
 {% endif %}
-
+{% if error_msg is defined%}
+Ошибка: {{error_msg}}
+{% endif %}
 </body>
 </html>

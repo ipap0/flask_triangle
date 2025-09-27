@@ -10,10 +10,12 @@ def index():
 
 @app.route("/",methods=['POST'])
 def calc():
-    trtr =  request.form.get('trtr')
-    a,b,c = map(int, trtr.split(' '))
-    t = Triangle(a, b, c)
-    return render_template('index.html', p=t.perimeter(), s=t.area())
-
+    try:
+        trtr =  request.form.get('trtr')
+        a,b,c = map(float, trtr.split(' '))
+        t = Triangle(a, b, c)
+        return render_template('index.html', p=t.perimeter(), s=t.area())
+    except Exception as err:
+        return render_template('index.html', error_msg = str(err) )
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
