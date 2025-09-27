@@ -6,14 +6,19 @@
 </head>
 <body>
 <form method="post">
-    введите три положительных числа <input name="trtr">
-     <input type="submit" value="Нажми" />
+    Введите три стороны треугольника в сантиметрах
+    <br><input name="a" type="number" min="0.05" step="0.01" required> см
+    <br><input name="b" type="number" min="0.05" step="0.01" required> см
+    <input type="submit" value=" Рассчитать " />
+    <br><input name="c" type="number" min="0.05" step="0.01" required> см
+
 </form>
 {% if p is defined%}
-    P: {{p}}<br/>
+Для треугольника со сторонами {{a}}; {{b}}; {{c}} были посчитаны:<br>
+    P: {{p}} см<br/>
 {% endif %}
 {% if s is defined%}
-    S: {{s}}
+    S: {{s}} см^2
 {% endif %}
 {% if error_msg is defined%}
 Ошибка: {{error_msg}}

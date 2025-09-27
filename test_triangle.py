@@ -10,6 +10,7 @@ class TestTriangle(TestCase):
         self.assertEqual(12, Triangle(3, 4, 5).perimeter())
         self.assertEqual(12, Triangle(4, 3, 5).perimeter())
         self.assertEqual(12, Triangle(5, 4, 3).perimeter())
+
     def test_perimeter2(self):
         self.assertEqual(27.6, Triangle(9.2, 9.2, 9.2).perimeter())
 
