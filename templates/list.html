@@ -3,20 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Список треугольников</title>
+    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
 </head>
 <body>
+<!--<script src="https://code.jquery.com/jquery-3.7.1.min.js">-->
+<!--<link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.css" />-->
+<!--<script src="https://cdn.datatables.net/2.3.4/js/dataTables.js"></script>-->
+<!--<script>-->
+<!--new DataTable('#example');-->
+<!--</script>-->
+
     <a href="/">На главную страницу</a>
 {% if triangles|length > 0 %}
   У нас есть {{ triangles|length }} элементов!
-    {% for tr in triangles %}
-   <p>{{ tr.a }} {{ tr.b }} {{ tr.c }} {{tr.area()|round(2)}}</p>
+    <table id="example" class="display" border="1">
+        <thead>
+        <tr><th>a</th><th>b</th><th>c</th><th>площадь</th></tr>
+        </thead>
+        <tbody>
+{% for tr in triangles %}
+   <tr><td>{{ tr.a }}</td> <td>{{ tr.b }}</td> <td>{{ tr.c }}</td> <td>{{tr.area()|round(2)}}</td></tr>
 {% endfor %}
-
+        </tbody>
+ </table>
 
 {% else %}
   Список пуст.
 {% endif %}
 
+<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script> <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script> <script> $(function(){ $("#example").dataTable(); }) </script>
 
 </body>
 </html>
