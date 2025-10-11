@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список треугольников</title>
+</head>
+<body>
+    <a href="/">На главную страницу</a>
+{% if triangles|length > 0 %}
+  У нас есть {{ triangles|length }} элементов!
+    {% for tr in triangles %}
+   <p>{{ tr.a }} {{ tr.b }} {{ tr.c }} {{tr.area()|round(2)}}</p>
+{% endfor %}
+
+
+{% else %}
+  Список пуст.
+{% endif %}
+
+
+</body>
+</html>
