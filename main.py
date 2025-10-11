@@ -26,7 +26,8 @@ def calc():
     except TrException as err:
         return render_template('index.html', error_msg=str(err))
     except Exception as err:
-        return render_template('index.html', error_msg='не удалось преобразовать ваши исходные данные')
+        #return render_template('index.html', error_msg='не удалось преобразовать ваши исходные данные')
+        return render_template('index.html', error_msg=str(err))
 
 @app.route("/list", methods=['GET'])
 def list():
