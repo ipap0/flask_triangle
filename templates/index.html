@@ -25,5 +25,10 @@
 {% endif %}
 <br>
 <a href="/list">список ранее введенных треугольников</a>
+<p>Статистика:</p>
+<table>
+    <tr><td><b>Средний периметр:</b> </td><td>{{stat.avg_p|round(2)}}</td></tr>
+    <tr><td><b>Средняя площадь:</b> </td><td>{{stat.avg_s|round(2)}}</td></tr>
+</table>
 </body>
 </html>

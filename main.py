@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 
 from db_connect import init_db
+from simple_stat import get_stat
 from triangle import Triangle, TrException
 from triangle_dba import save_triangle, get_triangles
 
@@ -10,7 +11,7 @@ app = Flask(__name__)
 @app.route("/", methods=['GET'])
 def index():
     init_db()
-    return render_template('index.html')
+    return render_template('index.html', stat = get_stat())
 
 
 @app.route("/", methods=['POST'])
@@ -22,7 +23,7 @@ def calc():
         # a,b,c = map(float, trtr.split(' '))
         t = Triangle(a, b, c)
         save_triangle(t)
-        return render_template('index.html', p=round(t.perimeter(),3), s=round(t.area(), 3), a=a, b=b, c=c)
+        return render_template('index.html', p=round(t.perimeter(),3), s=round(t.area(), 3), a=a, b=b, c=c,  stat = get_stat())
     except TrException as err:
         return render_template('index.html', error_msg=str(err))
     except Exception as err:
